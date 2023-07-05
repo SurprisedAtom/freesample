@@ -14,9 +14,9 @@ function Login() {
             <h3 className=' text-2xl font-medium mb-14'>Sign in</h3>
             <form className='flex flex-col' action="">    
                 <label className='text-sm font-light mb-2' htmlFor="email">Email</label>
-                <input className='mb-5 text-sm p-2 rounded-sm' type="text" name='email' placeholder='email' />
+                <input className='mb-5 text-sm p-2 rounded-sm text-fs-dark font-medium focus:text-fs-dark' type="text" name='email' placeholder='email' />
                 <label className='text-sm font-light mb-2' htmlFor="password">Password</label>
-                <input className='mb-14 text-sm p-2 rounded-sm' type="text" name='password' placeholder='password' />
+                <input className='mb-14 text-sm p-2 rounded-sm text-fs-dark font-medium focus:text-fs-dark' type="text" name='password' placeholder='password' />
                 <div>
                 <button className=' btn-primary' type='submit'>Login</button>
                 <button className=' text-sm ' >Don't have an account? <span className='underline'>Sign up</span></button>

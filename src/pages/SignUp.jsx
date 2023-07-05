@@ -17,18 +17,18 @@ function SignUp() {
             <form className='flex flex-col' action="">
                 <div className='flex'>
                     <div className='flex flex-col w-1/2 pr-2'>
-                        <label className='text-sm font-light mb-2' htmlFor="firstname">Firstname</label>
-                        <input className='mb-5 text-sm p-2 rounded-sm' type="text" name='firstname' placeholder='Firstname' />
+                        <label className='text-sm font-light mb-2 ' htmlFor="firstname">Firstname</label>
+                        <input className='mb-5 text-sm p-2 rounded-sm text-fs-dark font-medium focus:text-fs-dark' type="text" name='firstname' placeholder='Firstname' />
                     </div>
                     <div className='flex flex-col w-1/2'>
-                        <label className='text-sm font-light mb-2' htmlFor="lastname">Lastname</label>
-                        <input className='mb-5 text-sm p-2 rounded-sm' type="text" name='lastname' placeholder='Lastname' />
+                        <label className='text-sm font-light mb-2 text-fs-dark  focus:text-fs-dark' htmlFor="lastname">Lastname</label>
+                        <input className='mb-5 text-sm p-2 rounded-sm text-fs-dark font-medium focus:text-fs-dark' type="text" name='lastname' placeholder='Lastname' />
                     </div>
                 </div>
                 <label className='text-sm font-light mb-2' htmlFor="email">Email</label>
-                <input className='mb-5 text-sm p-2 rounded-sm' type="text" name='email' placeholder='email' />
+                <input className='mb-5 text-sm p-2 rounded-sm text-fs-dark font-medium focus:text-fs-dark' type="text" name='email' placeholder='email' />
                 <label className='text-sm font-light mb-2' htmlFor="password">Password</label>
-                <input className='mb-14 text-sm p-2 rounded-sm' type="text" name='password' placeholder='password' />
+                <input className='mb-14 text-sm p-2 rounded-sm text-fs-dark font-medium focus:text-fs-dark' type="text" name='password' placeholder='password' />
                 <div>
                 <button className=' btn-primary' type='submit'>Sign up</button>
                 <button className=' text-sm ' >Already have an account? <span className='underline'>Sign in</span></button>
