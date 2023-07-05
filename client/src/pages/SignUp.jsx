@@ -1,6 +1,9 @@
 import React from 'react'
 import Logo from '../assets/freesample-logo.svg'
 
+const user_regex = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
+const pass_regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+
 function SignUp() {
   return (
     <div className=' bg-circles bg-contain bg-no-repeat bg-fs-dark h-screen flex px-40 py-28 text-fs-text'>
