@@ -1,5 +1,6 @@
 import React from 'react'
 import Logo from '../assets/freesample-logo.svg'
+import { Link } from 'react-router-dom'
 
 function LandingPage() {
   return (
@@ -7,12 +8,11 @@ function LandingPage() {
         <div id='header' className='h-[90px] border-b border-fs-light/20 flex text-xs'>
             <img src={Logo} width={120} alt="logo" />
             <div className="ml-auto">
-            <button>Login</button>
-            <button className="h-full bg-fs-yellow px-8 ml-8">Sign up</button>
+            <Link to={'signin'}><button>Login</button></Link>
+            <Link to={'signup'}><button className="h-full bg-fs-yellow px-8 ml-8">Sign up</button></Link>
             </div>
         </div>
         <div className="px-24">
-
         </div>
     </div>
   )
