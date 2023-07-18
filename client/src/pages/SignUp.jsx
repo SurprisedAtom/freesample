@@ -1,38 +1,11 @@
 import { React, useRef, useState, useEffect } from "react";
 import Logo from "../assets/freesample-logo.svg";
 import { useFormik } from "formik";
+import * as Yup from "yup";
 
-const user_regex = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
-const pass_regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
-
-const validate = (values) => {
-  const errors = {};
-  if (!values.firstName) {
-    errors.firstName = "Required";
-  } else if (values.firstName.length > 15) {
-    errors.firstName = "Must be 15 characters or less";
-  }
-
-  if (!values.lastName) {
-    errors.lastName = "Required";
-  } else if (values.lastName.length > 20) {
-    errors.lastName = "Must be 20 characters or less";
-  }
-
-  if (!values.email) {
-    errors.email = "Required";
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-    errors.email = "Invalid email address";
-  }
-
-  if (!values.password) {
-    errors.password = "Required";
-  } else if (values.password.length < 8) {
-    errors.password = "Must be more than 8 characters";
-  }
-
-  return errors;
-};
+//possible regex for validation.
+// const user_regex = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
+// const pass_regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
 function SignUp() {
   const formik = useFormik({
@@ -42,7 +15,13 @@ function SignUp() {
       email: "",
       password: "",
     },
-    validate,
+    // prettier-ignore
+    validationSchema: Yup.object({
+      firstName: Yup.string().max(15, "Must be 15 characters or less").required("Required"),
+      lastName: Yup.string().max(20, "Must be 20 characters or less").required("Required"),
+      email: Yup.string().email("Invalid email address").required("Required"),
+      password: Yup.string().min(8, "Must be 8 characters or more").required("Required"),
+    }),
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
     },
@@ -82,9 +61,7 @@ function SignUp() {
                   id="firstName"
                   name="firstName"
                   placeholder="Firstname"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.firstName}
+                  {...formik.getFieldProps("firstName")}
                 />
                 {formik.touched.firstName && formik.errors.firstName ? (
                   <div>{formik.errors.firstName}</div>
@@ -103,9 +80,7 @@ function SignUp() {
                   name="lastName"
                   id="lastName"
                   placeholder="lastName"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.lastName}
+                  {...formik.getFieldProps("lastName")}
                 />
                 {formik.touched.lastName && formik.errors.lastName ? (
                   <div>{formik.errors.lastName}</div>
@@ -122,10 +97,7 @@ function SignUp() {
               id="email"
               placeholder="Email"
               autoComplete="off"
-              required
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.email}
+              {...formik.getFieldProps("email")}
             />
             {formik.touched.email && formik.errors.email ? (
               <div>{formik.errors.email}</div>
@@ -139,9 +111,7 @@ function SignUp() {
               name="password"
               id="password"
               placeholder="Password"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.password}
+              {...formik.getFieldProps("password")}
             />
             {formik.touched.password && formik.errors.password ? (
               <div>{formik.errors.password}</div>
