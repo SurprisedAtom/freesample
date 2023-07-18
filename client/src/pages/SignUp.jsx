@@ -1,4 +1,4 @@
-import { React, useRef, useState, useEffect } from "react";
+import { React } from "react";
 import Logo from "../assets/freesample-logo.svg";
 import { Formik, Form, useField } from "formik";
 import * as Yup from "yup";
