@@ -2,6 +2,7 @@ import { React } from "react";
 import Logo from "../assets/freesample-logo.svg";
 import { Formik, Form, useField } from "formik";
 import * as Yup from "yup";
+import axios from "axios";
 
 //possible regex for validation.
 // const user_regex = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
@@ -40,7 +41,14 @@ function SignUp() {
     })}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
+          // prettier-ignore
+          axios.post("http://localhost:3000/signup",values)
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
           setSubmitting(false);
         }, 400);
       }}
