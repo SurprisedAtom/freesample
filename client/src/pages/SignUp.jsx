@@ -44,7 +44,7 @@ function SignUp() {
           // prettier-ignore
           axios.post("http://localhost:3000/signup",values)
           .then(function (response) {
-            console.log(response);
+            console.log(response.data);
           })
           .catch(function (error) {
             console.log(error);
