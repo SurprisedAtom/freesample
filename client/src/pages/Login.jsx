@@ -31,10 +31,8 @@ function Login() {
       password: Yup.string().min(8, "Must be 8 characters or more").required("Required"),
     })}
       onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-        }, 400);
+        alert(JSON.stringify(values, null, 2));
+        setTimeout(() => setSubmitting(false), 2000);
       }}
     >
       {(formik) => (
@@ -64,7 +62,11 @@ function Login() {
                   placeholder="Password"
                 />
                 <div>
-                  <button className=" btn-primary" type="submit">
+                  <button
+                    className="btn-primary"
+                    type="submit"
+                    disabled={formik.isSubmitting}
+                  >
                     Login
                   </button>
                   <button className=" text-sm ">

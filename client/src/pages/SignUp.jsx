@@ -40,17 +40,15 @@ function SignUp() {
       password: Yup.string().min(8, "Must be 8 characters or more").required("Required"),
     })}
       onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          // prettier-ignore
-          axios.post("http://localhost:3000/signup",values)
+        // prettier-ignore
+        axios.post("http://localhost:3000/signup",values)
           .then(function (response) {
             console.log(response.data);
           })
           .catch(function (error) {
             console.log(error);
           });
-          setSubmitting(false);
-        }, 400);
+        setSubmitting(false);
       }}
     >
       {(formik) => (

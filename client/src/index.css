@@ -8,4 +8,8 @@
     .btn-primary{
         @apply text-sm mr-5 bg-fs-gold px-7 py-2 rounded-sm 
     }
+
+    .btn-disabled{
+        @apply text-sm mr-5 bg-gray-800 px-7 py-2 rounded-sm 
+    }
 }
